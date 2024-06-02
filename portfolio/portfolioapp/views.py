@@ -24,6 +24,9 @@ def submit_contact(request):
     return HttpResponse("Invalid request method.")
 
 
+def index(request):
+    return render(request, 'index.html')
+
 def success(request):
     return render(request, 'success.html')
 
