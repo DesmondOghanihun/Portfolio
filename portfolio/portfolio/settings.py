@@ -2,15 +2,15 @@ from pathlib import Path
 import os
 import django_heroku
 import dj_database_url
-from decouple import config
+
 
 BASE_DIR = Path(__file__).resolve().parent.parent
 
-SECRET_KEY = config('DJANGO_SECRET_KEY', default='your-secret-key')
+SECRET_KEY = 'django-insecure-d5irf$sj8(b$okvm4gfe7#06@c9kxgfo4w0!p2st-^e^kknj$f' # SECURITY WARNING: don't run with debug turned on in production! DEBUG = False
 
-DEBUG = config('DJANGO_DEBUG', default=True, cast=bool)
+DEBUG = os.environ.get('DEBUG', 'False') == 'True'
 
-ALLOWED_HOSTS = ['your-app-name.herokuapp.com', 'www.yourdomain.com']
+ALLOWED_HOSTS = ['*']
 
 INSTALLED_APPS = [
     'django.contrib.admin',
